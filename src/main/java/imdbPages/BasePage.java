@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.$;
 public class BasePage {
     protected SelenideElement acceptCookies = $(byXpath("//button[@data-testid='accept-button']"));
     protected SelenideElement searchInput = $(byXpath("//input[@data-testid='suggestion-search']"));
-    protected SelenideElement submitSearchButton = $(byXpath("//button[@id='suggestion-search-button']"));
     protected SelenideElement searchSuggestions = $(byXpath("//div[@id='react-autowhatever-navSuggestionSearch']"));
 
     public void acceptCookies(){
@@ -18,10 +17,6 @@ public class BasePage {
 
     public void enterTextInSearchInput(String text){
         searchInput.sendKeys(text);
-    }
-
-    public void clickSubmitSearchButton(){
-        submitSearchButton.click();
     }
 
     public void clickFirstMovieFromSearchSuggestions(){

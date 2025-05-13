@@ -13,16 +13,9 @@ public class DriverFactory {
         String browser = SettingsHelper.getString("browser").toLowerCase(Locale.ROOT);
 
         switch (browser) {
-            case "chrome":
-                WebDriverRunner.setWebDriver(new ChromeDriver());
-                break;
-
-            case "firefox":
-                WebDriverRunner.setWebDriver(new FirefoxDriver());
-                break;
-
-            default:
-                throw new IllegalArgumentException(String.format("Unsupported browser: %s", browser));
+            case "chrome" -> WebDriverRunner.setWebDriver(new ChromeDriver());
+            case "firefox" -> WebDriverRunner.setWebDriver(new FirefoxDriver());
+            default -> throw new IllegalArgumentException(String.format("Unsupported browser: %s", browser));
         }
     }
 
