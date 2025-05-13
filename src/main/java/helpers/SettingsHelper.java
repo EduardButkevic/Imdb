@@ -1,6 +1,5 @@
 package helpers;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -10,7 +9,10 @@ public class SettingsHelper {
     private static final Properties properties = new Properties();
 
     static {
-        try (InputStream input = new FileInputStream("src/main/resources/settings.properties")) {
+        try (InputStream input = SettingsHelper.class.getClassLoader().getResourceAsStream("settings.properties")) {
+            if (input == null) {
+                throw new RuntimeException("Unable to find settings.properties in classpath");
+            }
             properties.load(input);
         } catch (IOException ex) {
             throw new RuntimeException("Failed to load the settings file.", ex);

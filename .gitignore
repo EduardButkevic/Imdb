@@ -1,0 +1,32 @@
+# Maven build output
+target/
+
+# Allure test results
+allure-results/
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Logs
+*.log
+
+# Compiled Java class files
+*.class
+
+# JAR files
+*.jar
+
+# Maven wrapper
+.mvn/
+mvnw
+mvnw.cmd
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Intellij idea project folders
+.idea_modules/
