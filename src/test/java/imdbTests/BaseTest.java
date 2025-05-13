@@ -4,7 +4,6 @@ import com.codeborne.selenide.Configuration;
 import driver.DriverFactory;
 import helpers.SettingsHelper;
 import imdbPages.GenericPages;
-import jdk.jfr.Description;
 import org.testng.annotations.*;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -21,16 +20,8 @@ public class BaseTest {
         GenericPages.homepage.acceptCookies();
     }
 
-    @Test
-    @Description("Print out 5 members of the top cast section")
-    public void printOut5MembersOfTheTopCastSection() {
-        GenericPages.homepage.enterTextInSearchInput("QA");
-        GenericPages.homepage.clickFirstMovieFromSearchSuggestions();
-    }
-
     @AfterMethod
     public  void tearDown(){
         DriverFactory.closeBrowser();
     }
-
 }

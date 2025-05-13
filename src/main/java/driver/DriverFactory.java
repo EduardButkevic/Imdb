@@ -10,7 +10,7 @@ import java.util.Locale;
 public class DriverFactory {
 
     public static void initialize() {
-        String browser = SettingsHelper.getString("browser").toLowerCase(Locale.ROOT);
+        final String browser = SettingsHelper.getString("browser").toLowerCase(Locale.ROOT);
 
         switch (browser) {
             case "chrome" -> WebDriverRunner.setWebDriver(new ChromeDriver());

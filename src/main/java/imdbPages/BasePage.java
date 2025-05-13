@@ -7,9 +7,9 @@ import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
 
 public class BasePage {
-    protected SelenideElement acceptCookies = $(byXpath("//button[@data-testid='accept-button']"));
-    protected SelenideElement searchInput = $(byXpath("//input[@data-testid='suggestion-search']"));
-    protected SelenideElement searchSuggestions = $(byXpath("//div[@id='react-autowhatever-navSuggestionSearch']"));
+    protected final SelenideElement acceptCookies = $(byXpath("//button[@data-testid='accept-button']"));
+    protected final SelenideElement searchInput = $(byXpath("//input[@data-testid='suggestion-search']"));
+    protected final SelenideElement searchSuggestions = $(byXpath("//div[@id='react-autowhatever-navSuggestionSearch']"));
 
     public void acceptCookies(){
         acceptCookies.click();
@@ -19,11 +19,12 @@ public class BasePage {
         searchInput.sendKeys(text);
     }
 
-    public void clickFirstMovieFromSearchSuggestions(){
+    public MoviePage openFirstMovieFromSearchSuggestions(){
         waitForSearchSuggestions();
         SelenideElement element = $(byXpath("//li[not(contains(@class, 'react-autosuggest__suggestion--first'))]" +
                 "//div[contains(@class, 'ipc-media--poster-27x40')]"));
         element.click();
+        return new MoviePage();
     }
 
     private void waitForSearchSuggestions() {
