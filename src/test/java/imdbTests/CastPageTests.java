@@ -11,7 +11,7 @@ import java.util.List;
 public class CastPageTests extends BaseTest {
 
     @Test
-    @Description("Trumpas paaiškinimas, ką šis testas daro")
+    @Description("Print out 5 members of the top cast section")
     @Severity(SeverityLevel.NORMAL)
     public void printOut5MembersOfTheTopCastSection() {
         GenericPages.homepage.enterTextInSearchInput("QA");
